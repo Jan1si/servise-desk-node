@@ -5,7 +5,7 @@ export const getAll = async (req, res) => {
   try {
 
     const roles = await Role.find();
-    res.json({roles});
+    res.status(200).json({roles});
 
   } catch {
 

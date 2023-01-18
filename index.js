@@ -1,11 +1,17 @@
 import express from 'express';
 import mongoose from 'mongoose';
+
+import checkAuth from './middleware/checkAuth.js';
+
 import { RegisterValidator, LoginValidator } from './validations/Auth.js';
 import { RoleCreateValidator } from './validations/Role.js';
-import checkAuth from './middleware/checkAuth.js';
+import { CategoryValidator } from './validations/Category.js';
+import { DepartmentValidator } from './validations/Department.js';
+
 import * as UserController from "./controllers/UserController.js"
 import * as RoleController from "./controllers/RoleController.js"
 import * as CategoryController from "./controllers/CategoryController.js"
+import * as DepartmentController from "./controllers/DepartmentController.js"
 
 
 
@@ -24,10 +30,15 @@ app.patch('/roles/:id', checkAuth, RoleCreateValidator, RoleController.update);
 app.delete('/roles/:id', checkAuth, RoleController.remove);
 
 app.get('/categories', checkAuth, CategoryController.getAll);
-app.post('/categories', checkAuth, CategoryController.create);
-app.patch('/categories/:id', checkAuth, CategoryController.update);
+app.post('/categories', checkAuth, CategoryValidator, CategoryController.create);
+app.patch('/categories/:id', checkAuth, CategoryValidator, CategoryController.update);
 app.delete('/categories/:id', checkAuth, CategoryController.remove);
 
+
+app.get('/departmens', checkAuth, DepartmentController.getAll);
+app.post('/departmens', checkAuth, DepartmentValidator, DepartmentController.create);
+app.patch('/departmens/:id', checkAuth, DepartmentValidator, DepartmentController.update);
+app.delete('/departmens/:id', checkAuth, DepartmentController.remove);
 
 
 

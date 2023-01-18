@@ -6,7 +6,7 @@ const RoleShema = new mongoose.Schema({
     unique: true,
     require: true
   }
-},{
+}, {
   timestamps: true
 });
 

@@ -35,32 +35,32 @@ export const create = async (req, res) => {
 }
 
 export const update = async (req, res) => {
-try {
-  const categoryId = req.params.id;
+  try {
+    const categoryId = req.params.id;
 
-  Category.findByIdAndUpdate({
-    _id: categoryId
-  },{
-    title: req.body.title
-  }, (err, doc) => {
+    Category.findByIdAndUpdate({
+        _id: categoryId
+    },{
+        title: req.body.title
+    }, (err, doc) => {
 
-    if (err) {
-      return res.status(500).json({message: "Неудалось получить категорию"});
-    }
+        if (err) {
+          return res.status(500).json({message: "Неудалось получить категорию"});
+        }
 
-    if (!doc) {
-      return res.status(404).json({message: "Категория не найдена"});
-    } 
+        if (!doc) {
+          return res.status(404).json({message: "Категория не найдена"});
+        } 
 
-    res.json({message: "Категория изменена"});
+        res.json({message: "Категория изменена"});
 
-  });
+    });
 
-} catch  {
-  res.status(500).json({
-    message: "Неудалось получить категорию"
-  });
-}
+  } catch  {
+    res.status(500).json({
+      message: "Неудалось получить категорию"
+    });
+  }
 
 }
 
