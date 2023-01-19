@@ -12,7 +12,7 @@ import * as UserController from "./controllers/UserController.js"
 import * as RoleController from "./controllers/RoleController.js"
 import * as CategoryController from "./controllers/CategoryController.js"
 import * as DepartmentController from "./controllers/DepartmentController.js"
-
+import * as TaskController from "./controllers/TaskController.js";
 
 
 const app = express();
@@ -40,7 +40,11 @@ app.post('/departmens', checkAuth, DepartmentValidator, DepartmentController.cre
 app.patch('/departmens/:id', checkAuth, DepartmentValidator, DepartmentController.update);
 app.delete('/departmens/:id', checkAuth, DepartmentController.remove);
 
-
+app.get('/tasks', checkAuth, TaskController.getAll);
+app.get('/tasks/:id', checkAuth, TaskController.getOne);
+app.post('/tasks', checkAuth, TaskController.create);
+app.patch('/tasks/:id', checkAuth, TaskController.update);
+app.delete('/tasks/:id', checkAuth, TaskController.remove);
 
 app.listen(3000, (err) => {
     if (err) {
