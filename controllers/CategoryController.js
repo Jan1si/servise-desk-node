@@ -1,11 +1,16 @@
-import Category from "../models/Category.js";
+import CategoryModel from "../models/CategoryModel.js";
 import { validationResult } from "express-validator";
 
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ */
 export const getAll = async (req, res) => {
   try {
-    
-    const categories = await Category.find();
-    res.json({categories});
+    // Поучаем все категории 
+    const categories = await CategoryModel.find();
+    res.status(200).json({categories});
 
   } catch {
     res.status(500).json({
@@ -14,18 +19,29 @@ export const getAll = async (req, res) => {
   }
 }
 
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ * @returns
+ */
 export const create = async (req, res) => {
   try {
+    // Проверка на ошибки при заполнении формы
     const error = validationResult(req);
 
     if (!error.isEmpty()) {
       return res.status(400).json(error.array());
     }
-    
-    const doc = new Category({title: req.body.title});
+
+    // Создаем новый документ категории
+    const doc = new CategoryModel({title: req.body.title});
+
+    // Сохраняем новую категорию
     const category = await doc.save();
 
-    res.json({category});
+    // Возвращаем данные новой роли
+    res.status(200).json({category});
 
   } catch {
     res.status(500).json({
@@ -34,26 +50,42 @@ export const create = async (req, res) => {
   }
 }
 
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ */
 export const update = async (req, res) => {
   try {
+    // Получаем id категории
     const categoryId = req.params.id;
 
-    Category.findByIdAndUpdate({
+    // Ищим категорию по id и обновляем 
+    CategoryModel.findByIdAndUpdate({
         _id: categoryId
     },{
         title: req.body.title
+    },{
+        // Возвращаем категорию после обновления
+        returnDocument: "after"
     }, (err, doc) => {
 
+        // Проверка на ошибки
         if (err) {
-          return res.status(500).json({message: "Неудалось получить категорию"});
+          return res.status(500).json({
+            message: "Неудалось получить категорию"
+          });
         }
 
+        // Проверка на наличие документа
         if (!doc) {
-          return res.status(404).json({message: "Категория не найдена"});
+          return res.status(404).json({
+            message: "Категория не найдена"
+          });
         } 
 
-        res.json({message: "Категория изменена"});
-
+        // Возвращаем обновлённый документ
+        res.status(200).json({message: "Категория изменена"});
     });
 
   } catch  {
@@ -64,10 +96,18 @@ export const update = async (req, res) => {
 
 }
 
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ */
 export const remove = async (req, res) => {
   try {
+    // Получаем id роли
     const  categoryId = req.params.id;
-    Category.findByIdAndDelete({
+
+    // Ищим категорию по id и удаляем 
+    CategoryModel.findByIdAndDelete({
       _id: categoryId
     }, (err, doc) => {
       if (err) {
@@ -81,9 +121,11 @@ export const remove = async (req, res) => {
         });
       }
 
-      res.json({message: "Категория удалена"})
+      res.status(200).json({message: "Категория удалена"})
     });
   } catch {
-    
+    res.status(500).json({
+      message: "Неудалось удалить категорию"
+    });
   }
 }

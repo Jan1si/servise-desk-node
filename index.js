@@ -7,6 +7,8 @@ import { RegisterValidator, LoginValidator } from './validations/Auth.js';
 import { RoleCreateValidator } from './validations/Role.js';
 import { CategoryValidator } from './validations/Category.js';
 import { DepartmentValidator } from './validations/Department.js';
+import { TaskValidator } from './validations/Task.js';
+
 
 import * as UserController from "./controllers/UserController.js"
 import * as RoleController from "./controllers/RoleController.js"
@@ -42,8 +44,8 @@ app.delete('/departmens/:id', checkAuth, DepartmentController.remove);
 
 app.get('/tasks', checkAuth, TaskController.getAll);
 app.get('/tasks/:id', checkAuth, TaskController.getOne);
-app.post('/tasks', checkAuth, TaskController.create);
-app.patch('/tasks/:id', checkAuth, TaskController.update);
+app.post('/tasks', checkAuth, TaskValidator, TaskController.create);
+app.patch('/tasks/:id', checkAuth, TaskValidator, TaskController.update);
 app.delete('/tasks/:id', checkAuth, TaskController.remove);
 
 app.listen(3000, (err) => {

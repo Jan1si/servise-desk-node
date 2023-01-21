@@ -10,6 +10,15 @@ const UserShema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    department: {
+        type: String,
+        required: true,
+    },
+    role: {
+        type: String,
+        required: true,
+        default: "user"
+    },
     password: {
         type: String,
         required: true
@@ -19,4 +28,4 @@ const UserShema = new mongoose.Schema({
    }
 );
 
-export default mongoose.model("User", UserShema);
+export default mongoose.model("UserModel", UserShema);

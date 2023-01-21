@@ -14,9 +14,13 @@ const TaskShema = new mongoose.Schema({
     type: String,
     require: true
   },
+  priority: {
+    type: String,
+    require: true
+  },
   creater:{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'UserModel',
     require: true
   },
   worker:{

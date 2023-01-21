@@ -1,10 +1,16 @@
 import TaskModel from "../models/TaskModel.js";
-
-
+import { validationResult } from "express-validator";
+/**
+ * 
+ * @param {req} req 
+ * @param {req} res
+ * @returns {res.json}
+ */
 export const getAll = async (req, res) => {
   try {
-    const tasks = await TaskModel.find().populate('creater').exec();
-
+    const tasks = await TaskModel.find();
+    // ^^^^^^
+    // .populate('creater').exec()
     res.status(200).json({tasks});
   } catch {
     res.status(500).json({
@@ -13,10 +19,17 @@ export const getAll = async (req, res) => {
   }
 }
 
+/**
+ * 
+ * @param {req} req 
+ * @param {req} res 
+ * @returns {res.json}
+ */
 export const getOne = async (req, res) => {
   try {
     const taskId = req.params.id;
     const task = await TaskModel.findById(taskId).populate('creater').exec();
+    
     if (!task) {
       return res.status(404).json({
         message: "Задача не найдена"
@@ -26,18 +39,25 @@ export const getOne = async (req, res) => {
     res.status(200).json({task});
   } catch {
     res.status(500).json({
-      message: "Неудалось найти статью"
+      message: "Неудалось выполнить поиск задачи"
     });
   }
 }
 
+
+/**
+ * 
+ * @param {req} req 
+ * @param {res} res
+ * @returns {res.json} 
+ */
 export const create = async (req, res) => {
   try {
-    // const error = validationResult(req);
+    const error = validationResult(req);
 
-    // if (!error.isEmpty()) {
-    //   return res.status(400).json(error.array());
-    // }
+    if (!error.isEmpty()) {
+      return res.status(400).json(error.array());
+    }
 
     const doc = new TaskModel({
       title: req.body.title,
@@ -58,6 +78,12 @@ export const create = async (req, res) => {
   }
 }
 
+/**
+ * 
+ * @param {req} req 
+ * @param {res} res
+ * @returns {res.json}
+ */
 export const update = async (req, res) => {
   try {
     const taskId = req.params.id;
@@ -89,6 +115,11 @@ export const update = async (req, res) => {
   }
 }
 
+/**
+ * 
+ * @param {req} req 
+ * @param {res} res 
+ */
 export const remove = async (req, res) => {
   try {
     const taskId = req.params.id;

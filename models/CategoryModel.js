@@ -11,4 +11,4 @@ const CategoryShema = new mongoose.Schema({
 });
 
 
-export default mongoose.model('Category', CategoryShema);
+export default mongoose.model('CategoryModel', CategoryShema);
