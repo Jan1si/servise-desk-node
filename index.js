@@ -21,7 +21,6 @@ const app = express();
 
 app.use(express.json());
 
-app.get('/', (req, res) => {res.send('Hello World');});
 app.post('/auth/login', LoginValidator, UserController.login);
 app.post('/auth/register', RegisterValidator, UserController.register);
 app.get('/auth/me', checkAuth, UserController.getMe);
