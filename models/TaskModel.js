@@ -20,14 +20,14 @@ const TaskShema = new mongoose.Schema({
   },
   creater:{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'UserModel',
+    ref: 'Users',
     require: true
   },
   worker:{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'Users',
   }
 },{ timestamps: true
 });
 
-export default mongoose.model('TaskModel', TaskShema);
+export default mongoose.model('Tasks', TaskShema);

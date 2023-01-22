@@ -1,16 +1,18 @@
 import TaskModel from "../models/TaskModel.js";
 import { validationResult } from "express-validator";
+
 /**
+ * @async
+ * @param {object} req 
+ * Объект с данными из формы
+ * @param {object} res 
+ * Объект с ответом
+ * @returns {object} res.json({tasks}) - Возвращает все задачи
  * 
- * @param {req} req 
- * @param {req} res
- * @returns {res.json}
  */
 export const getAll = async (req, res) => {
   try {
-    const tasks = await TaskModel.find();
-    // ^^^^^^
-    // .populate('creater').exec()
+    const tasks = await TaskModel.find().populate('creater').exec();
     res.status(200).json({tasks});
   } catch {
     res.status(500).json({
@@ -20,10 +22,13 @@ export const getAll = async (req, res) => {
 }
 
 /**
+ * @async
+ * @param {object} req 
+ * Объект с данными из формы
+ * @param {object} res 
+ * Объект с ответом
+ * @returns {object} res.json({task}) - Возвращает задачу по id
  * 
- * @param {req} req 
- * @param {req} res 
- * @returns {res.json}
  */
 export const getOne = async (req, res) => {
   try {
@@ -46,10 +51,13 @@ export const getOne = async (req, res) => {
 
 
 /**
+ * @async
+ * @param {object} req 
+ * Объект с данными из формы
+ * @param {object} res 
+ * Объект с ответом
+ * @returns {object} res.json({task}) - Возвращает созданную зачачу
  * 
- * @param {req} req 
- * @param {res} res
- * @returns {res.json} 
  */
 export const create = async (req, res) => {
   try {
@@ -79,10 +87,13 @@ export const create = async (req, res) => {
 }
 
 /**
+ * @async
+ * @param {object} req 
+ * Объект с данными из формы
+ * @param {object} res 
+ * Объект с ответом
+ * @returns {object} res.json({doc}) - Возвращает обновлённую задачу
  * 
- * @param {req} req 
- * @param {res} res
- * @returns {res.json}
  */
 export const update = async (req, res) => {
   try {
@@ -116,10 +127,15 @@ export const update = async (req, res) => {
 }
 
 /**
+ * @async
+ * @param {object} req 
+ * Объект с данными из формы
+ * @param {object} res 
+ * Объект с ответом
+ * @returns {object} res.json({tasks}) - Возвращает сообщение о удалении задачи
  * 
- * @param {req} req 
- * @param {res} res 
  */
+
 export const remove = async (req, res) => {
   try {
     const taskId = req.params.id;

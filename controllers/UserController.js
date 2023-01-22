@@ -6,9 +6,9 @@ import UserModel from '../models/UserModel.js';
 
 /**
  * 
- * @param {*} req 
- * @param {*} res 
- * @returns 
+ * @param {object} req 
+ * @param {object} res 
+ * @returns {object} res.json({toket, userData})
  */
 export const register = async (req, res) => {
   try {
@@ -50,9 +50,9 @@ export const register = async (req, res) => {
 
 /**
  * 
- * @param {*} req 
- * @param {*} res 
- * @returns 
+ * @param {object} req 
+ * @param {object}} res 
+ * @returns {object} res.json({token, userData})
  */
 export const login = async (req, res) => {
   try {
@@ -90,8 +90,9 @@ export const login = async (req, res) => {
 
 /**
  * 
- * @param {*} req 
- * @param {*} res 
+ * @param {object} req 
+ * @param {object} res
+ * @returns {object} res.json({userData})
  */
 export const getMe = async (req, res) => {
   try {

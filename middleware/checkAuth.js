@@ -1,8 +1,9 @@
 import jwt  from "jsonwebtoken";
 
 /**
- * @param { req, res, next }
- * @returns {req.userId}
+ * @param {object} req
+ * @param {object} res
+ * @param {function next()} next
  */
 export default (req, res, next) => {
   const token = (req.headers.authorization || '').replace(/Bearer\s?/, '');

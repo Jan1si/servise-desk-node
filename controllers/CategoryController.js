@@ -2,9 +2,13 @@ import CategoryModel from "../models/CategoryModel.js";
 import { validationResult } from "express-validator";
 
 /**
+ * @async
+ * @param {object} req 
+ * Объект с данными из формы
+ * @param {object} res 
+ * Объект с ответом
+ * @returns {object} res.json({categories}) - возвращает все категории
  * 
- * @param {*} req 
- * @param {*} res 
  */
 export const getAll = async (req, res) => {
   try {
@@ -20,10 +24,13 @@ export const getAll = async (req, res) => {
 }
 
 /**
+ * @async
+ * @param {object} req 
+ * Объект с данными из формы
+ * @param {object} res 
+ * Объект с ответом
+ * @returns {object} res.json({category}) - Возвращает созданную категорию
  * 
- * @param {*} req 
- * @param {*} res 
- * @returns
  */
 export const create = async (req, res) => {
   try {
@@ -51,9 +58,13 @@ export const create = async (req, res) => {
 }
 
 /**
+ * @async
+ * @param {object} req 
+ * Объект с данными из формы
+ * @param {object} res 
+ * Объект с ответом
+ * @returns {object} res.json({doc}) - Возвращает обновлённую категорию
  * 
- * @param {*} req 
- * @param {*} res 
  */
 export const update = async (req, res) => {
   try {
@@ -85,7 +96,7 @@ export const update = async (req, res) => {
         } 
 
         // Возвращаем обновлённый документ
-        res.status(200).json({message: "Категория изменена"});
+        res.status(200).json({doc});
     });
 
   } catch  {
@@ -97,9 +108,13 @@ export const update = async (req, res) => {
 }
 
 /**
+ * @async
+ * @param {object} req 
+ * Объект с данными из формы
+ * @param {object} res 
+ * Объект с ответом
+ * @returns {object} res.json({message}) - Даёт отвте что категория удалена
  * 
- * @param {*} req 
- * @param {*} res 
  */
 export const remove = async (req, res) => {
   try {

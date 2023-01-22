@@ -36,7 +36,6 @@ app.post('/categories', checkAuth, CategoryValidator, CategoryController.create)
 app.patch('/categories/:id', checkAuth, CategoryValidator, CategoryController.update);
 app.delete('/categories/:id', checkAuth, CategoryController.remove);
 
-
 app.get('/departmens', checkAuth, DepartmentController.getAll);
 app.post('/departmens', checkAuth, DepartmentValidator, DepartmentController.create);
 app.patch('/departmens/:id', checkAuth, DepartmentValidator, DepartmentController.update);

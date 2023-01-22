@@ -1,5 +1,5 @@
 import { body } from "express-validator";
 
-export const  CategoryValidator = () => [
-  body('title', 'Слишком длинное значение максимум 20 символов').isLength({max: 20})
+export const  CategoryValidator = [
+  body('title', 'Слишком длинное значение максимум 50 символов').isLength({max: 50})
 ];

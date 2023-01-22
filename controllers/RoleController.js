@@ -2,9 +2,13 @@ import RoleModel from "../models/RoleModel.js";
 import { validationResult } from 'express-validator';
 
 /**
+ * @async
+ * @param {object} req 
+ * Объект с данными из формы
+ * @param {object} res 
+ * Объект с ответом
+ * @returns {object} res.json({roles}) - Возвращает все роли
  * 
- * @param {*} req 
- * @param {*} res 
  */
 export const getAll = async (req, res) => {
   try {
@@ -20,10 +24,13 @@ export const getAll = async (req, res) => {
 }
 
 /**
+ * @async
+ * @param {object} req 
+ * Объект с данными из формы
+ * @param {object} res 
+ * Объект с ответом
+ * @returns {object} res.json({role}) - Возвращает созданную роль
  * 
- * @param {*} req 
- * @param {*} res 
- * @returns 
  */
 export const create = async (req, res) => {
   try {
@@ -52,9 +59,13 @@ export const create = async (req, res) => {
 
 
 /**
+ * @async
+ * @param {object} req 
+ * Объект с данными из формы
+ * @param {object} res 
+ * Объект с ответом
+ * @returns {object} res.json({doc, message}) - Возвращает обновлённую роль и сообщение о обновлении
  * 
- * @param {*} req 
- * @param {*} res 
  */
 export const update = async (req, res) => {
   try {
@@ -98,9 +109,13 @@ export const update = async (req, res) => {
 
 
 /**
+ * @async
+ * @param {object} req 
+ * Объект с данными из формы
+ * @param {object} res 
+ * Объект с ответом
+ * @returns {object} res.json({message}) - Возвращает сообщение о удалении роли
  * 
- * @param {*} req 
- * @param {*} res 
  */
 export const remove = async (req, res) => {
   try {

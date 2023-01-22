@@ -2,9 +2,13 @@ import { validationResult } from "express-validator";
 import DepartmentModel from "../models/DepartmentModel.js";
 
 /**
+ * @async
+ * @param {object} req 
+ * Объект с данными из формы
+ * @param {object} res 
+ * Объект с ответом
+ * @returns {object} res.json({departments}) - Возвращает все отделения
  * 
- * @param {*} req 
- * @param {*} res 
  */
 export const getAll =  async (req, res) => {
     try {
@@ -20,9 +24,13 @@ export const getAll =  async (req, res) => {
 }
 
 /**
+ * @async
+ * @param {object} req 
+ * Объект с данными из формы
+ * @param {object} res 
+ * Объект с ответом
+ * @returns {object} res.json({department}) - Возвращает созданное отделение
  * 
- * @param {*} req 
- * @param {*} res 
  */
 export const create = async (req, res) => {
     try {
@@ -49,9 +57,13 @@ export const create = async (req, res) => {
 }
 
 /**
+ * @async
+ * @param {object} req 
+ * Объект с данными из формы
+ * @param {object} res 
+ * Объект с ответом
+ * @returns {object} res.json({doc, message}) - Возвращает обновлённое отделение и сообщение о успешном обновлении
  * 
- * @param {*} req 
- * @param {*} res 
  */
 export const update = async (req, res) => {
     try {
@@ -92,10 +104,13 @@ export const update = async (req, res) => {
 }
 
 /**
+ * @async
+ * @param {object} req 
+ * Объект с данными из формы
+ * @param {object} res 
+ * Объект с ответом
+ * @returns {object} res.json({message}) - Возвращает сообщение о удалении отделла
  * 
- * @param {req} 
- * @param {res} 
- * @returns {res.json}
  */
 export const remove = async (req, res) => {
     try {
