@@ -3,7 +3,7 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 
 import './index.scss'
-import { Main } from './Pages/Main';
+import { Main } from './pages/Main';
 
 export const App = () => {
   return (

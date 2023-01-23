@@ -5,7 +5,7 @@ export const TasksList = () => {
   return (
     <div className="blockTasks">
       <div className="title">
-        <h2>Все вашии заявки</h2>
+        <h2>Все ваши заявки</h2>
       </div>
       <div className="tasksList">
         <div className="emptyBlock">
