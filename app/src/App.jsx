@@ -1,6 +1,7 @@
-import React from 'react'
-import logo from './assets/logo.svg'
-import logoWhite from './assets/logo-white.svg'
+import React from 'react';
+import logo from './assets/logo.svg';
+import logoWhite from './assets/logo-white.svg';
+import empty from './assets/empty.svg';
 import './index.scss'
 
 export const App = () => {
@@ -44,34 +45,42 @@ export const App = () => {
             </div>
             {/* Nav */}
 
-
+            {/* Form */}
             <div className="formBlock">
-              <div className="title"></div>
-                <form action="">
-                  <div className="inputGroup">
-                    <input name='title' type="text" placeholder='Загололвок заявки...'/>
-                  </div>
-                  <div className="inputGroup groupRow">
-
-                    <div className="selectInput">
-                      <input name='category' 
-                      type="text" 
-                      disabled placeholder='Выберите категорию'/>
-                    </div>
-                    <div className="selectInput">
-                      <input name='priority' 
-                      type="text" 
-                      disabled placeholder='Выберите приоритет'/>
-                    </div>
-
-                  </div>
-
-                  <div className="inputGroup">
-                    <textarea name="desc" placeholder='Опишите вашу проблему...'>
-                    </textarea>
-                  </div>
-                </form>
+              <div className="title">
+                <h2>Составление заявки</h2>
               </div>
+              <form>
+                <div className="inputGroup">
+                  <input name='title' type="text" placeholder='Заголовок заявки'/>
+                </div>
+                <div className="inputGroup">
+                  <div className="selectInput">
+                    <input name='category' type="text" disabled placeholder='Категория проблемы'/>
+                  </div>
+                  <div className="selectInput">
+                    <input name='priority' type="text" disabled placeholder='Приоритет заявки'/>
+                  </div>
+                </div>
+                <div className="inputGroup">
+                  <textarea name="dsec" placeholder='Опишите вашу проблему...'></textarea>
+                </div>
+              </form>
+              <button className="sendFormBtn">Отправить</button>
+            </div>
+            {/* Form */}
+
+            <div className="blockTasks">
+              <div className="title">
+                <h2>Все вашии заявки</h2>
+              </div>
+              <div className="tasksList">
+                <div className="emptyBlock">
+                  <img src={empty} alt="Пусто" />
+                  <p className="emptyText">Список ваших заявок пуст!</p>
+                </div>
+              </div>
+            </div>
 
           </div>
         </div>

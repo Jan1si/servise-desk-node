@@ -1,3 +1,5 @@
+@import "./var_styles.scss";
+
 *{
     padding: 0;
     margin: 0;
@@ -6,9 +8,10 @@
 }
 .app{
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background: rgb(252, 252, 252);
 }
 
 .container {
@@ -24,54 +27,156 @@
         align-items: center;
         padding: 50px 45px;
         background: white;
-        border-radius: 20px;
-        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+        border-radius: $borderBlockRadius;
+        box-shadow: $blockShadow;
         margin-top: 30px;
     }
 }
 
 .main{
-    margin-top: 60px;
+    margin: 60px 0;
     flex-grow: 1;
     .mainBlock{
         display: flex;
-        background: #FFFFFF;
-        
+        justify-content: space-between;
     }
-    .navMenu{
-        padding: 40px 30px;
+    .navBlock{
         width: 280px;
         min-height: 400px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-        border-radius: 20px;
+        max-height: 400px;
+        background: white;
+        box-shadow: $blockShadow;
+        border-radius: $borderBlockRadius;
+        .navMenu{
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            grid-gap: 20px;
+        }
         .navList{
             display: flex;
             flex-direction: column;
             grid-gap: 20px;
-            .navItem {
-                font-size: 24px;
-                color: rgba(0, 0, 0, 0.6);
-                font-weight: 700;
-                cursor: pointer;
-            }
         }
         .subNavList{
             display: flex;
             flex-direction: column;
             grid-gap: 10px;
-            .titleSubList{
-                font-size: 24px;
-                color: rgba(0, 0, 0, 0.6);
-                font-weight: 700;
-                margin-top: 20px;
+        }
+        .navItem{
+            font-size: 24px;
+            font-weight: 700;
+            color: $baseTextColor;
+            cursor: pointer;
+        }
+        .titleSubList{
+            font-size: 24px;
+            font-weight: 700;
+            color: $baseTextColor;
+        }
+        .subNavItem{
+            font-size: 18px;
+            font-weight: 700;
+            color: $baseTextColor;
+            cursor: pointer;
+            margin-left: 30px;
+            width: fit-content;
+        }
+    }
+    .title{
+        margin-bottom: 20px;
+        font-size: 25px;
+        color: $boldTextColor;
+      }
+    .formBlock{
+      min-width: 570px;
+      >form{
+        display: flex;
+        flex-direction: column;
+        grid-gap: 20px;
+      }
+      .inputGroup{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        >input{
+            width: 100%;
+            border-radius: $borderBlockRadius;
+            box-shadow: $blockShadow;
+            padding: 20px 15px;
+            font-size: 18px;
+            font-weight: 600;
+            color: $baseTextColor;
+            outline: none;
+            border: none;
+            &::placeholder{
+                font-size: 18px;
+                font-weight: 600;
             }
-            .subNavItem{
-                font-weight: 700;
-                font-size: 20px;
-                margin-left: 35px;
-                color: rgba(0, 0, 0, 0.6);
-                cursor: pointer;
+        }
+        >textarea{
+            width: 100%;
+            height: 300px;
+            resize: none;
+            padding: 25px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: $borderBlockRadius;
+            box-shadow: $blockShadow;
+            outline: none;
+            border: none;
+        }
+      }
+      .selectInput{
+        width: 47%;
+        >input{
+            width: 100%;
+            padding: 20px 15px;
+            border-radius: $borderBlockRadius;
+            box-shadow: $blockShadow;
+            outline: none;
+            border: none;
+            &::placeholder{
+                font-size: 18px;
+                font-weight: 600;
             }
+        }
+      }
+      .sendFormBtn{
+        padding: 15px 50px;
+        margin-top: 30px;
+        font-size: 20px;
+        font-weight: 700;
+        color: white;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+        background: $activeButtonColor;
+        cursor: pointer;
+      }
+    }
+    .tasksList{
+        display: flex;
+        justify-content: center;
+        width: 400px;
+        height: 470px;
+        background: rgb(255, 255, 255);
+        border-radius: $borderBlockRadius;
+        box-shadow: $blockShadow;
+        .emptyBlock{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .emptyText{
+            font-size: 30px;
+            font-weight: 700;
+            color: $boldTextColor;
+            text-align: center;
+            max-width: 250px;
+            margin-top: 10px;
         }
     }
 }
