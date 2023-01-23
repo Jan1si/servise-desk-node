@@ -1,0 +1,131 @@
+@import "../../var_styles.scss";
+
+.title{
+    margin-bottom: 20px;
+    font-size: 25px;
+    color: $boldTextColor;
+  }
+.formBlock{
+  min-width: 570px;
+  >form{
+    display: flex;
+    flex-direction: column;
+    grid-gap: 20px;
+  }
+  .inputGroup{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    >input{
+        width: 100%;
+        border-radius: $borderBlockRadius;
+        box-shadow: $blockShadow;
+        padding: 20px 15px;
+        font-size: 18px;
+        font-weight: 600;
+        color: $baseTextColor;
+        outline: none;
+        border: none;
+        &::placeholder{
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+    >textarea{
+        width: 100%;
+        height: 300px;
+        resize: none;
+        padding: 25px;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: $borderBlockRadius;
+        box-shadow: $blockShadow;
+        outline: none;
+        border: none;
+    }
+  }
+  .selectGroup{
+    width: 47%;
+    position: relative;
+  }
+  .selectInput{
+    position: relative;
+    display: flex;
+    align-items: center;
+    >input{
+        width: 100%;
+        padding: 20px 15px;
+        border-radius: $borderBlockRadius;
+        box-shadow: $blockShadow;
+        outline: none;
+        border: none;
+        &::placeholder{
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+  }
+  .selectBlock{
+    visibility: visible;
+    opacity: 1;
+    position: absolute;
+    top: 120%;
+    width: 100%;
+    padding: 20px 15px;
+    background: white;
+    border-radius: $borderBlockRadius;
+    box-shadow: $blockShadow;
+    transition: all 0.2s ease-in-out;
+  }
+  .hideSelectBlock{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 80%;
+    width: 100%;
+    padding: 20px 15px;
+    background: white;
+    border-radius: $borderBlockRadius;
+    box-shadow: $blockShadow;
+    transition: all 0.2s ease-in-out;
+  }
+  .selectList{
+    display: flex;
+    flex-direction: column;
+    grid-gap: 10px;
+  }
+  .selectItem{
+    width: fit-content;
+    >p{
+        font-size: 16px;
+        font-weight: 600;
+        color: $baseTextColor;
+        cursor: pointer;
+    }
+  }
+  .selectBtn{
+    position: absolute;
+    cursor: pointer;
+    right: 20px;
+    >img {
+        transition: all .2s ease-in-out;
+    }
+    .active {
+        transition: all .2s ease-in-out;
+        transform: rotate(90deg);
+    }
+  }
+  .sendFormBtn{
+    padding: 15px 50px;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background: $activeButtonColor;
+    cursor: pointer;
+  }
+}

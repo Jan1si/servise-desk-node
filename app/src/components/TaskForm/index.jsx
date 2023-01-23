@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import arrowLeft from '../../assets/arrow-left.svg';
+import styles from './TaskForm.module.scss';
 
 export const TaskForm = () => {
 
@@ -28,60 +29,60 @@ export const TaskForm = () => {
   };
 
   return (
-    <div className="formBlock">
-      <div className="title">
+    <div className={styles.formBlock}>
+      <div className={styles.title}>
         <h2>Составление заявки</h2>
       </div>
       <form>
-        <div className="inputGroup">
+        <div className={styles.inputGroup}>
           <input name='title' type="text" placeholder='Заголовок заявки'/>
         </div>
-        <div className="inputGroup">
+        <div className={styles.inputGroup}>
 
-          <div className="selectGroup">
-            <div className="selectInput">
+          <div className={styles.selectGroup}>
+            <div className={styles.selectInput}>
               <input name='category' type="text" disabled placeholder='Категория проблемы'/>
-              <div onClick={() => openSelect("category")} className="selectBtn">
-                <img className={isOpenCategory ? "active" : ''} src={arrowLeft} alt="" />
+              <div onClick={() => openSelect("category")} className={styles.selectBtn}>
+                <img className={isOpenCategory ? styles.active : ''} src={arrowLeft} alt="" />
               </div>
             </div>
-            <div className={isOpenCategory ? "selectBlock" : "hideSelectBlock"}>
-              <ul className="selectList">
-                <li className="selectItem">
+            <div className={isOpenCategory ? styles.selectBlock : styles.hideSelectBlock}>
+              <ul className={styles.selectList}>
+                <li className={styles.selectItem}>
                   <p>Категория 1</p>
                 </li>
-                <li className="selectItem">
+                <li className={styles.selectItem}>
                   <p>Категория 2</p>
                 </li>
-                <li className="selectItem">
+                <li className={styles.selectItem}>
                   <p>Категория 3</p>
                 </li>
-                <li className="selectItem">
+                <li className={styles.selectItem}>
                   <p>Категория 4</p>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="selectGroup">
-            <div className="selectInput">
+          <div className={styles.selectGroup}>
+            <div className={styles.selectInput}>
               <input name='priority' type="text" disabled placeholder='Приоритет заявки'/>
-              <div onClick={() => openSelect("priority")} className="selectBtn">
-                <img className={isOpenPriority ? "active" : ''} src={arrowLeft} alt="" />
+              <div onClick={() => openSelect("priority")} className={styles.selectBtn}>
+                <img className={isOpenPriority ? styles.active : ''} src={arrowLeft} alt="Стрелка" />
               </div>
             </div>
-            <div className={isOpenPriority ? "selectBlock" : "hideSelectBlock"}>
-              <ul className="selectList">
-                <li className="selectItem">
+            <div className={isOpenPriority ? styles.selectBlock : styles.hideSelectBlock}>
+              <ul className={styles.selectList}>
+                <li className={styles.selectItem}>
                   <p>Приоритет 1</p>
                 </li>
-                <li className="selectItem">
+                <li className={styles.selectItem}>
                   <p>Приоритет 2</p>
                 </li>
-                <li className="selectItem">
+                <li className={styles.selectItem}>
                   <p>Приоритет 3</p>
                 </li>
-                <li className="selectItem">
+                <li className={styles.selectItem}>
                   <p>Приоритет 4</p>
                 </li>
               </ul>
@@ -89,11 +90,11 @@ export const TaskForm = () => {
           </div>
 
         </div>
-        <div className="inputGroup">
+        <div className={styles.inputGroup}>
           <textarea name="dsec" placeholder='Опишите вашу проблему...'></textarea>
         </div>
       </form>
-      <button className="sendFormBtn">Отправить</button>
+      <button className={styles.sendFormBtn}>Отправить</button>
     </div>
   )
 }

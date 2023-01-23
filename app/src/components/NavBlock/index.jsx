@@ -1,22 +1,23 @@
-import React from 'react'
+import React from 'react';
+import styles from "./NavBlock.module.scss";
 
 export const NavBlock = () => {
   return (
-    <div className="navBlock">
-      <nav className="navMenu">
+    <div className={styles.navBlock}>
+      <nav className={styles.navMenu}>
       
-        <ul className="navList">
-          <li className="navItem"><p>Составить заявку</p></li>
-          <li className="navItem"><p>Журнал заявок</p></li>
+        <ul className={styles.navList}>
+          <li className={styles.navItem}><p>Составить заявку</p></li>
+          <li className={styles.navItem}><p>Журнал заявок</p></li>
         </ul>
 
-        <ul className="subNavList">
-          <p className="titleSubList">Справочники</p>
+        <ul className={styles.subNavList}>
+          <p className={styles.titleSubList}>Справочники</p>
 
-          <li className="subNavItem"><p>Пользователи</p></li>
-          <li className="subNavItem"><p>Отделения</p></li>
-          <li className="subNavItem"><p>Категории</p></li>
-          <li className="subNavItem"> <p>Роли</p></li>
+          <li className={styles.subNavItem}><p>Пользователи</p></li>
+          <li className={styles.subNavItem}><p>Отделения</p></li>
+          <li className={styles.subNavItem}><p>Категории</p></li>
+          <li className={styles.subNavItem}> <p>Роли</p></li>
         </ul>
 
       </nav>

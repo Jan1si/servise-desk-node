@@ -1,0 +1,45 @@
+@import "../../var_styles.scss";
+
+.navBlock{
+    width: 280px;
+    min-height: 400px;
+    max-height: 400px;
+    background: white;
+    box-shadow: $blockShadow;
+    border-radius: $borderBlockRadius;
+    .navMenu{
+        padding: 40px 30px;
+        display: flex;
+        flex-direction: column;
+        grid-gap: 20px;
+    }
+    .navList{
+        display: flex;
+        flex-direction: column;
+        grid-gap: 20px;
+    }
+    .subNavList{
+        display: flex;
+        flex-direction: column;
+        grid-gap: 10px;
+    }
+    .navItem{
+        font-size: 24px;
+        font-weight: 700;
+        color: $baseTextColor;
+        cursor: pointer;
+    }
+    .titleSubList{
+        font-size: 24px;
+        font-weight: 700;
+        color: $baseTextColor;
+    }
+    .subNavItem{
+        font-size: 18px;
+        font-weight: 700;
+        color: $baseTextColor;
+        cursor: pointer;
+        margin-left: 30px;
+        width: fit-content;
+    }
+}

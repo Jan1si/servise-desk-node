@@ -1,0 +1,15 @@
+@import '../../var_styles.scss';
+
+.header{
+    .headerBlock {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 50px 45px;
+        background: white;
+        border-radius: $borderBlockRadius;
+        box-shadow: $blockShadow;
+        margin-top: 30px;
+    }
+}
