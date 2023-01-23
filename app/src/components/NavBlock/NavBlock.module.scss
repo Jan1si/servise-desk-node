@@ -26,8 +26,11 @@
     .navItem{
         font-size: 24px;
         font-weight: 700;
-        color: $baseTextColor;
         cursor: pointer;
+        >a {
+            text-decoration: none;
+            color: $baseTextColor;
+        }
     }
     .titleSubList{
         font-size: 24px;
@@ -37,9 +40,12 @@
     .subNavItem{
         font-size: 18px;
         font-weight: 700;
-        color: $baseTextColor;
         cursor: pointer;
         margin-left: 30px;
         width: fit-content;
+        >a {
+            text-decoration: none;
+            color: $baseTextColor;
+        }
     }
 }

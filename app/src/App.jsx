@@ -1,9 +1,13 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import './index.scss'
+
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { NavBlock } from './components/NavBlock';
 
-import './index.scss'
 import { Main } from './pages/Main';
+import { Tasks } from './pages/Tasks';
 
 export const App = () => {
   return (
@@ -12,7 +16,11 @@ export const App = () => {
       <div className="main">
         <div className="container">
           <div className="mainBlock">
-            <Main />
+            <NavBlock />
+            <Routes>
+              <Route exact path='/' element={ <Main />} />
+              <Route exact path='/tasks' element={ <Tasks />} />
+            </Routes>
           </div>
         </div>
       </div>
