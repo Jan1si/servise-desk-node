@@ -8,23 +8,25 @@ import { NavBlock } from './components/NavBlock';
 
 import { Main } from './pages/Main';
 import { Tasks } from './pages/Tasks';
+import { AuthForms } from './components/AuthForms';
 
 export const App = () => {
   return (
     <div className="app">
-      <Header />
-      <div className="main">
-        <div className="container">
-          <div className="mainBlock">
-            <NavBlock />
-            <Routes>
-              <Route exact path='/' element={ <Main />} />
-              <Route exact path='/tasks' element={ <Tasks />} />
-            </Routes>
+      <AuthForms />
+      {/* <Header />
+        <div className="main">
+          <div className="container">
+            <div className="mainBlock">
+              <NavBlock />
+              <Routes>
+                <Route exact path='/' element={ <Main />} />
+                <Route exact path='/tasks' element={ <Tasks />} />
+              </Routes>
+            </div>
           </div>
         </div>
-      </div>
-      <Footer />
+      <Footer /> */}
     </div>
   )
 }
