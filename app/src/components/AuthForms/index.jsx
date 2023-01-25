@@ -61,7 +61,7 @@ export const AuthForms = () => {
                     <p className={styles.afterInfo}>Если у вас уже есть аккаунт, то нажмите 
                         <span onClick={() => setIsShowRegister((prev) => !prev)}> войти</span>
                     </p>
-                    <button className={styles.btnSend}>Зарегестрироваться</button>
+                    <button className={styles.btnSend}>Зарегистрироваться</button>
                 </form>
             </div>
 
@@ -80,7 +80,7 @@ export const AuthForms = () => {
                         </div>
                     </div>
                     <p className={styles.afterInfo}>Если у вас нет аккаунта, то вы можете 
-                        <span onClick={() => setIsShowRegister((prev) => !prev)}> зарегестрироваться</span>
+                        <span onClick={() => setIsShowRegister((prev) => !prev)}> зарегистрироваться</span>
                     </p>
                     <button className={styles.btnSend}>Авторизоваться</button>
                 </form>

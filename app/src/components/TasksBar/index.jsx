@@ -1,7 +1,7 @@
 import React from 'react'
 import empty from '../../assets/empty.svg';
 
-export const TasksList = () => {
+export const TasksBar = () => {
   return (
     <div className="blockTasks">
       <div className="title">

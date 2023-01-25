@@ -1,7 +1,7 @@
 @import "../../var_styles.scss";
 
 .navBlock{
-    width: 280px;
+    min-width: 280px;
     min-height: 400px;
     max-height: 400px;
     background: white;
