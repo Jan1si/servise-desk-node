@@ -6,8 +6,8 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { NavBlock } from './components/NavBlock';
 
-import { Main } from './pages/Main';
-import { Tasks } from './pages/Tasks';
+import { Main } from './Pages/Main';
+import { Tasks } from './Pages/Tasks';
 import { AuthForms } from './components/AuthForms';
 
 export const App = () => {
