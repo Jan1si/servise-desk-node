@@ -6,6 +6,7 @@ import { ReactComponent as UserIcon } from "../../assets/user.svg";
 import { ReactComponent as RolesIcon } from "../../assets/roles.svg";
 import { ReactComponent as DepartmentIcon } from "../../assets/department.svg";
 import { ReactComponent as CategoryIcon } from "../../assets/category.svg";
+import { ReactComponent as TaskListIcon } from "../../assets/task-list.svg";
 
 
 export const NavBlock = () => {
@@ -21,6 +22,7 @@ export const NavBlock = () => {
             </Link></li>
           <li className={styles.navItem}>
               <Link to="/tasks">
+                <TaskListIcon className={styles.navIcon} width="25px" height="25px"/>
                 Журнал заявок 
               </Link>
             </li>
