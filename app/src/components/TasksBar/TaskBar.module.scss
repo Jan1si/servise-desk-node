@@ -1,0 +1,31 @@
+@import "../../var_styles.scss";
+
+.title{
+  margin-bottom: 20px;
+  font-size: 25px;
+  color: $boldTextColor;
+}
+
+.tasksList{
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  height: 470px;
+  background: rgb(255, 255, 255);
+  border-radius: $borderBlockRadius;
+  box-shadow: $blockShadow;
+  .emptyBlock{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+  }
+  .emptyText{
+      font-size: 30px;
+      font-weight: 700;
+      color: $boldTextColor;
+      text-align: center;
+      max-width: 250px;
+      margin-top: 10px;
+  }
+}
