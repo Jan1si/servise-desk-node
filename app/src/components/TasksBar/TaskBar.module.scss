@@ -9,7 +9,7 @@
 .tasksList{
   display: flex;
   justify-content: center;
-  width: 400px;
+  min-width: 400px;
   height: 470px;
   background: rgb(255, 255, 255);
   border-radius: $borderBlockRadius;
@@ -28,4 +28,8 @@
       max-width: 250px;
       margin-top: 10px;
   }
+}
+
+.tasksList{
+  width: 100%;
 }

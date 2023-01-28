@@ -1,0 +1,14 @@
+.yourTaskBlock {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-left: 40px;
+    justify-content: space-between;
+}
+
+@media (max-width: 1410px) {
+    .yourTaskBlock {
+        flex-direction: column;
+        grid-gap: 30px;
+    }
+}
