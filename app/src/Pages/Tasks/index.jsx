@@ -1,4 +1,6 @@
 import React from 'react'
+import { Pagination } from '../../components/Pagination'
+import { TaskCard } from '../../components/TaskCard'
 import  './Tasks.scss'
 
 export const Tasks = () => {
@@ -8,145 +10,20 @@ export const Tasks = () => {
         <h2>Журнал заявок</h2>
       </div>
       <ul className="tasklist">
-      <div className="taskItem">
-          <div className="headerItem">
-            <div className="titleItem">
-              <h2>Заголовок</h2>
-            </div>
-            <div className="priorityItem">
-              <span>Приоритет</span>
-            </div>
-          </div>
-          <div className="infoTask">
-            <div className="categoryTask"><p>Категория заявки</p></div>
-            <div className="userTask"><p>Фамилия Имя Отчество</p></div>
-          </div>
-          <div className="textTask">
-            <p>
-              Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается 
-            </p>
-          </div>
-          <button className="btnSend">Принять</button>
-        </div>
-
-        <div className="taskItem">
-          <div className="headerItem">
-            <div className="titleItem">
-              <h2>Заголовок</h2>
-            </div>
-            <div className="priorityItem">
-              <span>Приоритет</span>
-            </div>
-          </div>
-          <div className="infoTask">
-            <div className="categoryTask"><p>Категория заявки</p></div>
-            <div className="userTask"><p>Фамилия Имя Отчество</p></div>
-          </div>
-          <div className="textTask">
-            <p>
-              Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается 
-            </p>
-          </div>
-          <button className="btnSend">Принять</button>
-        </div>
-        <div className="taskItem">
-          <div className="headerItem">
-            <div className="titleItem">
-              <h2>Заголовок</h2>
-            </div>
-            <div className="priorityItem">
-              <span>Приоритет</span>
-            </div>
-          </div>
-          <div className="infoTask">
-            <div className="categoryTask"><p>Категория заявки</p></div>
-            <div className="userTask"><p>Фамилия Имя Отчество</p></div>
-          </div>
-          <div className="textTask">
-            <p>
-              Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается 
-            </p>
-          </div>
-          <button className="btnSend">Принять</button>
-        </div>
-
-        <div className="taskItem">
-          <div className="headerItem">
-            <div className="titleItem">
-              <h2>Заголовок</h2>
-            </div>
-            <div className="priorityItem">
-              <span>Приоритет</span>
-            </div>
-          </div>
-          <div className="infoTask">
-            <div className="categoryTask"><p>Категория заявки</p></div>
-            <div className="userTask"><p>Фамилия Имя Отчество</p></div>
-          </div>
-          <div className="textTask">
-            <p>
-              Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается 
-            </p>
-          </div>
-          <button className="btnSend">Принять</button>
-        </div>
-
-        <div className="taskItem">
-          <div className="headerItem">
-            <div className="titleItem">
-              <h2>Заголовок</h2>
-            </div>
-            <div className="priorityItem">
-              <span>Приоритет</span>
-            </div>
-          </div>
-          <div className="infoTask">
-            <div className="categoryTask"><p>Категория заявки</p></div>
-            <div className="userTask"><p>Фамилия Имя Отчество</p></div>
-          </div>
-          <div className="textTask">
-            <p>
-              Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается 
-            </p>
-          </div>
-          <button className="btnSend">Принять</button>
-        </div>
-
-        <div className="taskItem">
-          <div className="headerItem">
-            <div className="titleItem">
-              <h2>Заголовок</h2>
-            </div>
-            <div className="priorityItem">
-              <span>Приоритет</span>
-            </div>
-          </div>
-          <div className="infoTask">
-            <div className="categoryTask"><p>Категория заявки</p></div>
-            <div className="userTask"><p>Фамилия Имя Отчество</p></div>
-          </div>
-          <div className="textTask">
-            <p>
-              Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается 
-            </p>
-          </div>
-          <button className="btnSend">Принять</button>
-        </div>
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
       </ul>
-      <div className="pagination">
+      <div className="paginationBlock">
         <ul className="pagList">
-          <li className="bullet">
-            <p>1</p>
-          </li>
-          <li className="bullet">
-            <p>2</p>
-          </li>
-          <li className="bullet">
-            <p>3</p>
-          </li>
-          <li className="bullet">
-            <p>4</p>
-          </li>
+          <Pagination value={1} />
+          <Pagination value={2} />
+          <Pagination value={3} />
+          <Pagination value={4} />
+          <Pagination value={5} />
         </ul>
       </div>
    </div>

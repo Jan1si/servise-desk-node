@@ -8,7 +8,6 @@ import { ReactComponent as DepartmentIcon } from "../../assets/department.svg";
 import { ReactComponent as CategoryIcon } from "../../assets/category.svg";
 import { ReactComponent as TaskListIcon } from "../../assets/task-list.svg";
 
-
 export const NavBlock = () => {
   return (
     <div className={styles.navBlock}>
