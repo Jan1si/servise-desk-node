@@ -8,12 +8,12 @@ import { NavBlock } from './components/NavBlock';
 import { AuthForms } from './components/AuthForms';
 
 
-import { Main } from './pages/Main';
-import { Tasks } from './pages/Tasks';
-import { UserTable } from './pages/UserTable';
-import { DepTable } from './pages/DepTable';
-import { CategTable } from './pages/CategTable';
-import { RoleTable } from './pages/RoleTable';
+import { Main } from './Pages/Main';
+import { Tasks } from './Pages/Tasks';
+import { UserTable } from './Pages/UserTable';
+import { DepTable } from './Pages/DepTable';
+import { CategTable } from './Pages/CategTable';
+import { RoleTable } from './Pages/RoleTable';
 
 export const App = () => {
   return (
