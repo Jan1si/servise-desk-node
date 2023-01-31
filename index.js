@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 
 import checkAuth from './middleware/checkAuth.js';
 
@@ -20,6 +21,7 @@ import * as TaskController from "./controllers/TaskController.js";
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.post('/auth/login', LoginValidator, UserController.login);
 app.post('/auth/register', RegisterValidator, UserController.register);
@@ -46,7 +48,7 @@ app.post('/tasks', checkAuth, TaskValidator, TaskController.create);
 app.patch('/tasks/:id', checkAuth, TaskValidator, TaskController.update);
 app.delete('/tasks/:id', checkAuth, TaskController.remove);
 
-app.listen(3000, (err) => {
+app.listen(3001, (err) => {
     if (err) {
        return  console.log('Start error server');
     } else {

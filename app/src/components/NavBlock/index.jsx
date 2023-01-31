@@ -16,12 +16,12 @@ export const NavBlock = () => {
         <ul className={styles.navList}>
           <li className={styles.navItem}>
             <Link to="/">
-              <WriteTasksIcon  className={styles.navIcon} width="25px" height="25px"/>
+              <WriteTasksIcon  className={styles.navIcon} width="20px" height="20px"/>
               Составить заявку
             </Link></li>
           <li className={styles.navItem}>
               <Link to="/tasks">
-                <TaskListIcon className={styles.navIcon} width="25px" height="25px"/>
+                <TaskListIcon className={styles.navIcon} width="20px" height="20px"/>
                 Журнал заявок 
               </Link>
             </li>
@@ -32,25 +32,25 @@ export const NavBlock = () => {
 
           <li className={styles.subNavItem}>
             <Link to="/tables/users">
-              <UserIcon className={styles.navIcon} width="20px" height="20px"/>
+              <UserIcon className={styles.navIcon} width="18px" height="18px"/>
               Пользователи
               </Link>
           </li>
           <li className={styles.subNavItem}>
             <Link to="/tables/departments">
-              <DepartmentIcon className={styles.navIcon} width="20px" height="20px"/>
+              <DepartmentIcon className={styles.navIcon} width="18px" height="18px"/>
               Отделения
               </Link>
           </li>
           <li className={styles.subNavItem}>
             <Link to="/tables/categories">
-              <CategoryIcon className={styles.navIcon} width="20px" height="20px"/>
+              <CategoryIcon className={styles.navIcon} width="18px" height="18px"/>
               Категории
               </Link>
           </li>
           <li className={styles.subNavItem}>
             <Link to="/tables/roles">
-              <RolesIcon className={styles.navIcon} width="20px" height="20px"/>
+              <RolesIcon className={styles.navIcon} width="18px" height="18px"/>
               Роли
               </Link>
           </li>

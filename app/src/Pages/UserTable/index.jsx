@@ -1,10 +1,21 @@
-import React  from 'react'
+import React, { useEffect, useState }  from 'react'
+import axios from '../../axios.js';
 import { TableRow } from '../../components/TableRow';
 import './UserTable.scss';
 
-
 export const UserTable = () => {
 
+    const [userData, setUserData] = useState([]);
+
+    useEffect(() => {
+        axios.get("/tasks")
+            .then((obj) => {
+                setUserData(obj);
+            });
+    }, [])
+
+    console.log(userData);
+    
   return (
     <div className="tableBlock">
         <table className="table">
