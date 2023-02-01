@@ -4,7 +4,7 @@ import cors from 'cors';
 
 import checkAuth from './middleware/checkAuth.js';
 
-import { RegisterValidator, LoginValidator } from './validations/Auth.js';
+import { RegisterValidator, LoginValidator, UserValidator } from './validations/Auth.js';
 import { RoleCreateValidator } from './validations/Role.js';
 import { CategoryValidator } from './validations/Category.js';
 import { DepartmentValidator } from './validations/Department.js';
@@ -26,6 +26,9 @@ app.use(cors());
 app.post('/auth/login', LoginValidator, UserController.login);
 app.post('/auth/register', RegisterValidator, UserController.register);
 app.get('/auth/me', checkAuth, UserController.getMe);
+app.get('/users', UserController.getAll);
+app.patch('/users/:id', UserValidator, UserController.update);
+app.delete('/users/:id',  UserController.remove);
 
 app.get('/roles', checkAuth, RoleController.getAll);
 app.post('/roles', checkAuth, RoleCreateValidator, RoleController.create);
@@ -42,17 +45,17 @@ app.post('/departmens', checkAuth, DepartmentValidator, DepartmentController.cre
 app.patch('/departmens/:id', checkAuth, DepartmentValidator, DepartmentController.update);
 app.delete('/departmens/:id', checkAuth, DepartmentController.remove);
 
-app.get('/tasks', checkAuth, TaskController.getAll);
-app.get('/tasks/:id', checkAuth, TaskController.getOne);
-app.post('/tasks', checkAuth, TaskValidator, TaskController.create);
-app.patch('/tasks/:id', checkAuth, TaskValidator, TaskController.update);
-app.delete('/tasks/:id', checkAuth, TaskController.remove);
+app.get('/tasks', TaskController.getAll);
+app.get('/tasks/:id', TaskController.getOne);
+app.post('/tasks', TaskValidator, TaskController.create);
+app.patch('/tasks/:id', TaskValidator, TaskController.update);
+app.delete('/tasks/:id', TaskController.remove);
 
 app.listen(3001, (err) => {
     if (err) {
        return  console.log('Start error server');
     } else {
-       return  console.log('Server is running on port http://localhost:3000/');
+       return  console.log('Server is running on port http://localhost:3001/');
     }
 }); // start server
 

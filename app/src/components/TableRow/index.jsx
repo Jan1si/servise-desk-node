@@ -2,9 +2,26 @@ import React from 'react'
 import { useState } from 'react';
 import styles from "./TableRow.module.scss";
 
-export const TableRow = ({childKey}) => {
+export const TableRow = ({childKey, value}) => {
 
   const [isActive, setIsActive] = useState(false);
+  
+  const filter = ["_id", "password", "createdAt", "updatedAt", "__v"];
+  const valueFilter = Object.keys(value).filter((item) => {
+    // console.log(item);
+    for (const key of filter) {
+      console.log(item === key);
+      if (item === key) {
+        delete value.key;
+        return false;
+      } else {
+        return true
+      }
+     
+    }
+  })
+
+  console.log(valueFilter);
 
   const handleClick = (e) => {
     if (e.id === "remove" || e.id === 'edit') return;

@@ -110,3 +110,69 @@ export const getMe = async (req, res) => {
       res.status(500).json({message: "Неудалось получить данные"});
   }
 }
+
+export const getAll = async (req, res) => {
+    try {
+        const users = await UserModel.find();        
+        res.status(200).json({users});
+    } catch (error) {
+        res.status(500).json({message: "Неудалось получить пользователей!"});
+    }
+}
+
+export const update = async (req, res) => {
+    try {
+        const userId = req.params.id;
+
+        const passwordRaw = req.body.password;
+        const salt = await bcrypt.genSalt(10);
+        const passwordHash = await bcrypt.hash(passwordRaw, salt)
+
+        UserModel.findByIdAndUpdate({
+            _id: userId
+        }, {
+            title: req.body.title,
+            email: req.body.email,
+            department: req.body.department,
+            role: req.body.role,
+            password: passwordHash
+
+        }, {
+            returnDocument: "after" 
+        }, (err, doc) => {
+            if (err) {
+                return res.status(500).json({message: "Неудаось обновить пользователя"})
+            }
+            if (!doc) {
+                return res.status(404).json({message: "Пользователь не найден"});
+            }
+
+            res.status(200).json({doc});
+            }
+        )
+    } catch (error) {
+        res.status(500).json({message: "Неудалось обновить пользователя"});
+    }
+}
+
+export const remove = async (req, res) => {
+    try {
+        const userId = req.params.id;
+
+        UserModel.findByIdAndDelete({
+            _id: userId
+        }, (err, doc) => {
+            if (err) {
+                return res.status(500).json({message: "Неудалось удалить пользователя"});
+            }
+            if (!doc) {
+                return res.status(404).json({message: "Пользователь не найден"});
+            }
+
+            res.status(200).json(doc);
+        });
+
+    } catch (error) {
+        res.status(500).json({message: "Неудалось удалить пользователя"});
+    }
+}
