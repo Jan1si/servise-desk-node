@@ -19,17 +19,13 @@ export const UserTable = () => {
        }
        fetchData()
     }, [])
-
-    console.log(userData);
     
   return (
     <div className="tableBlock">
         <table className="table">
             <thead className='tHead'>
                 <tr className='row-head'>
-                    <th className='col-head'>
-                        <div className="col-content">#</div>
-                    </th>
+                    <th className='col-head'><div className="col-content">#</div></th>
                     <th className='col-head'><div className="col-content">Имя</div></th>
                     <th className='col-head'><div className="col-content">Отделение</div></th>
                     <th className='col-head'><div className="col-content">Роль</div></th>
@@ -38,7 +34,11 @@ export const UserTable = () => {
             </thead>
             <tbody className='tBody'>
                 {userData.map((item, key)=> 
-                    <TableRow  key={key} childKey={key} value={item} />
+                    <TableRow  key={key} 
+                        childKey={key} 
+                        value={item}  
+                        showColumns={["_id", "name",  "department",  "role", "email"]}
+                    />
                 )}
                 
             </tbody>

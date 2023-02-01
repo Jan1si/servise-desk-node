@@ -2,6 +2,7 @@
 
 .tableBlock {
     width: 100%;
+    overflow-x: auto;
     margin-left: 40px;
     border-radius: 20px;
     box-shadow: $blockShadow;
