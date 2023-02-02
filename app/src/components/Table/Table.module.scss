@@ -1,14 +1,4 @@
-@import "../../var_styles.scss";
-
-.tableBlock {
-    width: 100%;
-    overflow-x: auto;
-    margin-left: 40px;
-    border-radius: 20px;
-    box-shadow: $blockShadow;
-    background: white;
-    padding-bottom: 16px;
-}
+@import '../../var_styles.scss';
 
 .table {
     text-decoration: none;
@@ -24,12 +14,12 @@
 
 .tHead {
     border-bottom: 1px solid #81818125;
-    .col-head {
+    .colHead {
         color: $boldTextColor;
         font-weight: 700;
         font-size:22px;
     }
-    .col-content {
+    .colContent {
         padding: 15px 20px;
     }
 }

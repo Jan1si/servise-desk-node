@@ -1,14 +1,14 @@
 import React, { useEffect, useState }  from 'react'
 import axios from '../../axios.js'
-import { TableRow } from '../../components/TableRow';
-import './UserTable.scss';
+import { Table } from '../../components/Table';
 
+import styles from '../../TableBlock.module.scss';
 export const UserTable = () => {
 
     const [userData, setUserData] = useState([]);
 
     useEffect(() => {
-       async function fetchData(){
+       const fetchData = async () => {
         try {
             const { data } = await axios.get('/users');
             const obj = JSON.parse(JSON.stringify(data.users));
@@ -21,28 +21,17 @@ export const UserTable = () => {
     }, [])
     
   return (
-    <div className="tableBlock">
-        <table className="table">
-            <thead className='tHead'>
-                <tr className='row-head'>
-                    <th className='col-head'><div className="col-content">#</div></th>
-                    <th className='col-head'><div className="col-content">Имя</div></th>
-                    <th className='col-head'><div className="col-content">Отделение</div></th>
-                    <th className='col-head'><div className="col-content">Роль</div></th>
-                    <th className='col-head'><div className="col-content">Email</div></th>
-                </tr>
-            </thead>
-            <tbody className='tBody'>
-                {userData.map((item, key)=> 
-                    <TableRow  key={key} 
-                        childKey={key} 
-                        value={item}  
-                        showColumns={["_id", "name",  "department",  "role", "email"]}
-                    />
-                )}
-                
-            </tbody>
-        </table>
+    <div className={styles.tableBlock}>
+      <div className={styles.titleTable}>
+        <h2>Пользователи</h2>
+      </div>
+      <div className={styles.tableWrapp}>
+        
+          <Table
+              fetchData={userData}
+              headerColumns={["id", "Имя", "Отделение", "Роль", "Email"]}
+              showCollumns={["_id", "name",  "department",  "role", "email"]} />
+      </div>
     </div>
   )
 }

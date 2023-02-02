@@ -59,6 +59,9 @@
 
 .colContent {
   padding: 10px 15px;
-  max-width: 180px;
+  width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   word-wrap: break-word;
 }

@@ -11,7 +11,7 @@ import { AuthForms } from './components/AuthForms';
 import { Main } from './pages/Main';
 import { Tasks } from './pages/Tasks';
 import { UserTable } from './pages/UserTable';
-import { DepTable } from './pages/DepTable';
+import { DepartTable } from './pages/DepartTable';
 import { CategTable } from './pages/CategTable';
 import { RoleTable } from './pages/RoleTable';
 
@@ -35,7 +35,7 @@ export const App = () => {
                 <Route exact path='/' element={ <Main />} />
                 <Route exact path='/tasks' element={ <Tasks />} />
                 <Route exact path='/tables/users' element={ <UserTable />} />
-                <Route exact path='/tables/departments' element={ <DepTable />} />
+                <Route exact path='/tables/departments' element={ <DepartTable />} />
                 <Route exact path='/tables/categories' element={ <CategTable />} />
                 <Route exact path='/tables/roles' element={ <RoleTable />} />
               </Routes>

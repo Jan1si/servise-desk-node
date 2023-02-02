@@ -1,0 +1,25 @@
+@import "./var_styles.scss";
+
+.tableBlock {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+
+}
+
+.titleTable {
+    margin-bottom: 20px;
+    font-size: 25px;
+    color: $boldTextColor;
+}
+
+.tableWrapp {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 20px;
+    box-shadow: $blockShadow;
+    background: white;
+    padding-bottom: 16px;
+}
+
