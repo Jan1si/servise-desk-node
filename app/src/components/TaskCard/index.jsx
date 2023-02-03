@@ -2,25 +2,23 @@ import React from 'react';
 import styles from './TaskCard.module.scss';
 
 
-export const TaskCard = () => {
+export const TaskCard = ({ title, category, priority, creater, desk }) => {
   return (
     <div className={styles.taskItem}>
       <div className={styles.headerItem}>
         <div className={styles.titleItem}>
-          <h2>Заголовок</h2>
+          <h2>{title}</h2>
         </div>
         <div className={styles.priorityItem}>
-          <span>Приоритет</span>
+          <span>{priority}</span>
         </div>
       </div>
       <div className={styles.infoTask}>
-        <div className={styles.categoryTask}><p>Категория заявки</p></div>
-        <div className={styles.userTask}><p>Фамилия Имя Отчество</p></div>
+        <div className={styles.categoryTask}><p>{category}</p></div>
+        <div className={styles.userTask}><p>{creater.name}</p></div>
       </div>
       <div className={styles.textTask}>
-        <p>
-          Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается 
-        </p>
+        <p>{desk}</p>
       </div>
       <button className={styles.btnSend}>Принять</button>
     </div>

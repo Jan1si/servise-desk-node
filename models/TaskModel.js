@@ -5,7 +5,9 @@ const TaskShema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  desc: String,
+  desk:{
+    type: String
+  },
   category:{
     type: String,
     require: true

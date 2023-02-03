@@ -47,7 +47,7 @@ app.delete('/departmens/:id',  DepartmentController.remove);
 
 app.get('/tasks', TaskController.getAll);
 app.get('/tasks/:id', TaskController.getOne);
-app.post('/tasks', TaskValidator, TaskController.create);
+app.post('/tasks', checkAuth, TaskValidator, TaskController.create);
 app.patch('/tasks/:id', TaskValidator, TaskController.update);
 app.delete('/tasks/:id', TaskController.remove);
 

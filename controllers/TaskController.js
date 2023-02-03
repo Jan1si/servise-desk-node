@@ -69,7 +69,7 @@ export const create = async (req, res) => {
 
     const doc = new TaskModel({
       title: req.body.title,
-      desc: req.body.desc,
+      desk: req.body.desk,
       category: req.body.category,
       status: req.body.status,
       creater: req.userId
@@ -102,7 +102,7 @@ export const update = async (req, res) => {
       _id: taskId
     },{
       title: req.body.title,
-      desc: req.body.desc,
+      desk: req.body.desk,
       category: req.body.category,
       status: req.body.status,
     }, (err, doc) => {
