@@ -1,5 +1,7 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from '../../axios.js';
+
 import arrowLeft from '../../assets/arrow-left.svg';
 import styles from './TaskForm.module.scss';
 
@@ -7,6 +9,20 @@ export const TaskForm = () => {
 
   const [isOpenCategory, setIsOpenCategory] = useState(false);
   const [isOpenPriority, setIsOpenPriority] = useState(false);
+  const [dataCaregories, setDataCategories] = useState([]);
+
+  useEffect(() => {
+    try {
+      const fetchData = async () => {
+        const { data } = await axios.get('/categories');
+        const obj = JSON.parse(JSON.stringify(data.categories));
+        setDataCategories(() => obj);
+      }
+      fetchData();
+    } catch (error) {
+      alert(`Неудалось получить данные! ${error}`);
+    }
+  },[]);
 
   /**
    * 
@@ -48,18 +64,11 @@ export const TaskForm = () => {
             </div>
             <div className={isOpenCategory ? styles.selectBlock : styles.hideSelectBlock}>
               <ul className={styles.selectList}>
-                <li className={styles.selectItem}>
-                  <p>Категория 1</p>
-                </li>
-                <li className={styles.selectItem}>
-                  <p>Категория 2</p>
-                </li>
-                <li className={styles.selectItem}>
-                  <p>Категория 3</p>
-                </li>
-                <li className={styles.selectItem}>
-                  <p>Категория 4</p>
-                </li>
+                {dataCaregories.map((item, key) => 
+                  <li key={item._id + key} className={styles.selectItem}>
+                    <p>{item.title}</p>
+                  </li>
+                )}
               </ul>
             </div>
           </div>

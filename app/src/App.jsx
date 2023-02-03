@@ -25,8 +25,8 @@ import { RoleTable } from './Pages/RoleTable';
 export const App = () => {
   return (
     <div className="app">
-      {/* <AuthForms /> */}
-      <Header />
+      <AuthForms />
+      {/* <Header />
         <div className="main">
           <div className="container">
             <div className="mainBlock">
@@ -42,7 +42,7 @@ export const App = () => {
             </div>
           </div>
         </div>
-      <Footer />
+      <Footer /> */}
     </div>
   )
 }
