@@ -4,6 +4,7 @@ import arrowLeft from '../../assets/arrow-left.svg';
 import styles from './AuthForms.module.scss';
 
 import { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import axios from '../../axios.js';
 
 export const AuthForms = () => {
@@ -12,18 +13,32 @@ export const AuthForms = () => {
     const [isShowRegister, setIsShowRegister] = useState(false);
     const [dataDepart, setDataDepart] = useState([]);
     const [selectDepart, setSelectDepart] = useState('');
-    const [userName, setUserName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
+    const {register:registerForm, 
+           handleSubmit: handleRegister,
+           setError: setErrorRegiter,
+           setValue: setValueRegister} = useForm({
+        defaultValues: {
+            department: '',
+            name: '',
+            email: '',
+            password: ''
+        }
+    });
 
-
+    const {register:loginForm, 
+          handleSubmit: handleLogin,
+          setError: setErrorLogin} = useForm({
+        defaultValues: {
+            email: '',
+            password: ''
+        }
+ });
 
     useEffect(() => {
         try {
             const fetchData = async () => {
                 const { data } = await axios.get('/departmens');
-                console.log(data);
                 const obj = JSON.parse(JSON.stringify(data.departments));
                 setDataDepart(() => obj);
             }
@@ -35,34 +50,26 @@ export const AuthForms = () => {
 
     const onSelectInput = (value) => {
         setSelectDepart(() => value);
+        setValueRegister("department", value);
         setOpenSelect(() => false);
     }
 
-    const onChangeInput = (inputName, e) => {
-        switch (inputName) {
-            case 'name':
-                setUserName(() => e.value);
-                break;
-            case 'email':
-                setEmail(() => e.value);
-                break;
-            case 'password':
-                setPassword(() => e.value);
-                break;
-            default:
-                break;
+    const onSubmitRegister = async (value) => {
+        try {
+            console.log(value);
+            const { data } = await axios.post('/auth/register', value);
+        } catch (error) {
+            alert("Неудалось зарегистрироваться!");
         }
     }
 
-    const onSubmitForm = async (e) => {
-        e.preventDefault();
+    const onSubmitLogin = async (value) => {
         try {
-            const obj = new FormData(e.target);
-            // const data = await axios.post('/auth/register', obj);
-            // console.log(data);
+            console.log(value);
+            const { data } = await axios.post('/auth/login', value);
+            console.log(data);
         } catch (error) {
-            alert("Неудалось зарегистрироваться!");
-            console.log(error)
+            alert("Неудалось авторизоваться!");
         }
     }
 
@@ -71,14 +78,18 @@ export const AuthForms = () => {
         <div className={styles.authBlock}>
             <div className={isShowRegister ? styles.formBlock : styles.hiddenForm}>
                 <div className={styles.logo}><img src={logo} alt="Логотип" /></div>
-                <form onSubmit={(e) => onSubmitForm(e)} method="post">
-                    <div className={styles.titleForm}><h2>Регистрация</h2></div>
+                <form onSubmit={handleRegister(onSubmitRegister)} method="post">
+                    <div className={styles.titleForm}>
+                        <h2>Регистрация</h2>
+                    </div>
                     <div className={styles.selectGroup}>
+
                         <div className={styles.selectInput}>
                             <input name='department'
                                    type="text"
-                                   disabled
+                                   readOnly={true}
                                    value={selectDepart}
+                                   {...registerForm('department')}
                                    placeholder='Выберите отделение'/>
                             <div onClick={() => setOpenSelect((prev) => !prev)} className={styles.selectBtn}>
                                 <img className={openSelect ? styles.active : ""} src={arrowLeft} alt="" />
@@ -91,26 +102,24 @@ export const AuthForms = () => {
                                 )}
                             </ul>
                         </div>
+
                     </div>
                     <div className={styles.listInputs}>
                         <div className={styles.inputGroup}>
                             <input name='name'
                              type="text"
-                             value={userName}
-                             onChange={(e) => onChangeInput('name', e.target)}
+                             {...registerForm('name')}
                              placeholder="Имя" />
                         </div>
                         <div className={styles.inputGroup}>
                             <input name='email'
-                             value={email}
-                             onChange={(e) => onChangeInput('email', e.target)}
+                             {...registerForm('email')}
                              type="text"
                              placeholder="Email" />
                         </div>
                         <div className={styles.inputGroup}>
                             <input name='password'
-                             value={password}
-                             onChange={(e) => onChangeInput('password', e.target)}
+                             {...registerForm('password')}
                              type="password"
                              placeholder="Пароль" />
                         </div>
@@ -129,16 +138,14 @@ export const AuthForms = () => {
 
             <div className={isShowRegister ? styles.hiddenForm : styles.formBlock}>
                 <div className={styles.logo}><img src={logo} alt="Логотип" /></div>
-                <form>
+                <form onSubmit={handleLogin(onSubmitLogin)}>
                     <div className={styles.titleForm}><h2>Авторизация</h2></div>
                     <div className={styles.listInputs}>
                         <div className={styles.inputGroup}>
-                            <input name='email'
-                                   type="text"
-                                   placeholder="Email" />
+                            <input name='email' type="text" placeholder="Email" {...loginForm('email')}/>
                         </div>
                         <div className={styles.inputGroup}>
-                            <input name='password' type="password" placeholder="Пароль" />
+                            <input name='password' type="password" placeholder="Пароль" {...loginForm('password')}/>
                         </div>
                     </div>
                     <p className={styles.afterInfo}>Если у вас нет аккаунта, то вы можете 

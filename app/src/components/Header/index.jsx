@@ -11,6 +11,9 @@ export const Header = () => {
             <div className={styles.logo}>
               <img src={logo} alt="Логотип" />
             </div>
+            <button className={styles.logout}>
+              Евграфов Никита Андреевич
+            </button>
           </div>
         </div>
       </header>
