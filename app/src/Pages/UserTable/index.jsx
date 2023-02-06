@@ -8,17 +8,17 @@ export const UserTable = () => {
     const [userData, setUserData] = useState([]);
 
     useEffect(() => {
-       const fetchData = async () => {
         try {
+          const fetchData = async () => {
             const { data } = await axios.get('/users');
             const obj = JSON.parse(JSON.stringify(data.users));
             setUserData(() => obj);
+          }
+          fetchData();
         } catch (error) {
             alert(`Неудалось получить данные! ${error}`)
         }
-       }
-       fetchData()
-    }, [])
+    }, []);
     
   return (
     <div className={styles.tableBlock}>
@@ -28,7 +28,9 @@ export const UserTable = () => {
       <div className={styles.tableWrapp}>
         
           <Table
+              nameTable={'users'}
               fetchData={userData}
+              setFetchData={setUserData}
               headerColumns={["id", "Имя", "Отделение", "Роль", "Email"]}
               showCollumns={["_id", "name",  "department",  "role", "email"]} />
       </div>

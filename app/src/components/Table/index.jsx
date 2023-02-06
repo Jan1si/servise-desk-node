@@ -1,8 +1,25 @@
-import React from 'react'
+import React from 'react';
+import axios from '../../axios.js';
+
 import { TableRow } from '../TableRow'
+
 import styles from './Table.module.scss';
 
-export const Table = ({fetchData, showCollumns, headerColumns}) => {
+export const Table = ({fetchData, setFetchData, showCollumns, headerColumns, nameTable}) => {
+ 
+  console.log(fetchData)
+
+  const onRemove = async (id) => {
+    try {
+        const { data } = await axios.delete(`/${nameTable}/${id}`);
+        console.log(data);
+        setFetchData((prev) => prev.filter((item) => item._id !== id));
+    } catch (error) {
+        alert("Неудалось удалить запись!");
+    }
+  }
+
+
   return (
     <table className={styles.table}>
         <thead className={styles.tHead}>
@@ -19,7 +36,8 @@ export const Table = ({fetchData, showCollumns, headerColumns}) => {
             {fetchData.map((item, key)=> 
                 <TableRow  key={key} 
                     childKey={key} 
-                    value={item}  
+                    value={item}
+                    onRemove={onRemove}
                     showColumns={showCollumns}
                 />
             )}
