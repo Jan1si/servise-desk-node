@@ -25,31 +25,31 @@ app.use(cors());
 
 app.post('/auth/login', LoginValidator, UserController.login);
 app.post('/auth/register', RegisterValidator, UserController.register);
-app.get('/auth/me',  UserController.getMe);
-app.get('/users', UserController.getAll);
-app.patch('/users/:id', UserValidator, UserController.update);
-app.delete('/users/:id',  UserController.remove);
+app.get('/auth/me',  checkAuth, UserController.getMe);
+app.get('/users', checkAuth, UserController.getAll);
+app.patch('/users/:id',  checkAuth, UserValidator, UserController.update);
+app.delete('/users/:id',  checkAuth, UserController.remove);
 
-app.get('/roles',  RoleController.getAll);
-app.post('/roles',  RoleCreateValidator, RoleController.create);
-app.patch('/roles/:id',  RoleCreateValidator, RoleController.update);
-app.delete('/roles/:id',  RoleController.remove);
+app.get('/roles',  checkAuth, RoleController.getAll);
+app.post('/roles',  checkAuth, RoleCreateValidator, RoleController.create);
+app.patch('/roles/:id',  checkAuth, RoleCreateValidator, RoleController.update);
+app.delete('/roles/:id',  checkAuth, RoleController.remove);
 
-app.get('/categories',  CategoryController.getAll);
-app.post('/categories',  CategoryValidator, CategoryController.create);
-app.patch('/categories/:id',  CategoryValidator, CategoryController.update);
-app.delete('/categories/:id',  CategoryController.remove);
+app.get('/categories',  checkAuth, CategoryController.getAll);
+app.post('/categories',  checkAuth, CategoryValidator, CategoryController.create);
+app.patch('/categories/:id',  checkAuth, CategoryValidator, CategoryController.update);
+app.delete('/categories/:id',  checkAuth, CategoryController.remove);
 
 app.get('/departmens',  DepartmentController.getAll);
-app.post('/departmens',  DepartmentValidator, DepartmentController.create);
-app.patch('/departmens/:id',  DepartmentValidator, DepartmentController.update);
-app.delete('/departmens/:id',  DepartmentController.remove);
+app.post('/departmens',  checkAuth, DepartmentValidator, DepartmentController.create);
+app.patch('/departmens/:id',  checkAuth, DepartmentValidator, DepartmentController.update);
+app.delete('/departmens/:id',  checkAuth, DepartmentController.remove);
 
-app.get('/tasks', TaskController.getAll);
-app.get('/tasks/:id', TaskController.getOne);
+app.get('/tasks', checkAuth, TaskController.getAll);
+app.get('/tasks/:id', checkAuth, TaskController.getOne);
 app.post('/tasks', checkAuth, TaskValidator, TaskController.create);
 app.patch('/tasks/:id', TaskValidator, TaskController.update);
-app.delete('/tasks/:id', TaskController.remove);
+app.delete('/tasks/:id', checkAuth, TaskController.remove);
 
 app.listen(3001, (err) => {
     if (err) {

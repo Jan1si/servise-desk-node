@@ -65,9 +65,8 @@ export const AuthForms = () => {
 
     const onSubmitLogin = async (value) => {
         try {
-            console.log(value);
             const { data } = await axios.post('/auth/login', value);
-            console.log(data);
+            localStorage.setItem('token', data.token);
         } catch (error) {
             alert("Неудалось авторизоваться!");
         }
